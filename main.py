@@ -7,8 +7,12 @@ from scoreboard import Scoreboard
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
+screen.listen()
 
 # Create a turtle player that starts at the bottom of the screen and listen for the "Up" keypress to move the turtle north.
+
+player1 = Player()
+screen.onkeypress(player1.up, "Up")
 
 # Create cars that are 20px high by 40px wide that are randomly generated along the y-axis and move to the left edge of the screen. No cars should be generated in the top and bottom 50px of the screen (think of it as a safe zone for our little turtle). Hint: generate a new car only every 6th time the game loop runs.
 
