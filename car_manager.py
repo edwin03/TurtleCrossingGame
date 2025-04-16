@@ -11,13 +11,13 @@ class CarManager(Turtle):
         self.shape("square")
         self.penup()
         self.seth(180)
-        self.turtlesize(1, 2)
+        self.shapesize(stretch_wid=1, stretch_len=2)
         self.goto(self.random_location())
         self.color(random.choice(COLORS))
 
     def random_location(self):
-        return (280, random.randint(-250, 250))
+        return (300, random.randint(-250, 250))
 
     def move(self):
-        self.forward(MOVE_INCREMENT)
+        self.forward(STARTING_MOVE_DISTANCE)
 

@@ -15,10 +15,6 @@ screen.listen()
 player1 = Player()
 screen.onkeypress(player1.up, "Up")
 
-
-
-# Create cars that are 20px high by 40px wide that are randomly generated along the y-axis and move to the left edge of the screen. No cars should be generated in the top and bottom 50px of the screen (think of it as a safe zone for our little turtle). Hint: generate a new car only every 6th time the game loop runs.
-
 # Create a scoreboard that keeps track of which level the user is on. Every time the turtle player does a successful crossing, the level should increase. When the turtle hits a car, GAME OVER should be displayed in the centre.
 
 cars = []
@@ -27,10 +23,11 @@ while game_is_on:
     car = CarManager()
     cars.append(car)
 
-    for c in cars:
-        c.move()
-        time.sleep(0.1)
-        screen.update()
+    for i in range(6):
+        for c in cars:
+            c.move()
+            time.sleep(0.1)
+            screen.update()
 
 
     # Detect when the turtle player collides with a car and stop the game if this happens.
