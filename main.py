@@ -28,14 +28,19 @@ while game_is_on:
             c.move()
             time.sleep(0.1)
             screen.update()
+    # Detect when the turtle player collides with a car and stop the game if this happens.
     for c in cars:
-        if c.distance(player1) < 30:
+        if c.distance(player1) < 40:
             print(c)
             print("Game Over")
             game_is_on = False
             #scoreboard = Scoreboard()
             #scoreboard.game_over()
-
-# Detect when the turtle player collides with a car and stop the game if this happens.
+    current_position = player1.position()
+    if current_position[1] >= 280:
+        player1.start()
+        cars.clear()
+        car.inc_speed()
+        screen.clear()
 
     # Detect when the turtle player has reached the top edge of the screen (i.e., reached the FINISH_LINE_Y). When this happens, return the turtle to the starting position and increase the speed of the cars. Hint: think about creating an attribute and using the MOVE_INCREMENT to increase the car speed.
